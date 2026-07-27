@@ -1,0 +1,33 @@
+{
+  "start_node": "scene_1",
+  "scenes": {
+    "scene_1": {
+      "title": "NEO-CHICAGO :: OVERWATCH TERMINAL",
+      "dialogue": "Senior Dev Vex drops onto your desk a printout of an incoming API request from an unknown decker. 'The player login server is throwing erratic 500 errors. Look at this raw payload:\n\nPayload: admin' OR '1'='1'; DROP TABLE users; --\n\nWhat kind of threat vector are we looking at here?'",
+      "choices": [
+        {
+          "text": "It's a SQL Injection (SQLi) attempt attempting authentication bypass and data deletion.",
+          "next_node": "scene_2_success",
+          "is_correct": true,
+          "threat_type": "SQLi"
+        },
+        {
+          "text": "It's a Cross-Site Scripting (XSS) payload trying to hijack session cookies.",
+          "next_node": "scene_2_fail",
+          "is_correct": false,
+          "threat_type": "XSS"
+        }
+      ]
+    },
+    "scene_2_success": {
+      "title": "DATABASE DEFENDED",
+      "dialogue": "Vex nods approvingly. 'Good catch. We blocked the query at the gateway using parameterized inputs. But now the decker is attempting a credential stuffing attack against the player portal...'",
+      "choices": []
+    },
+    "scene_2_fail": {
+      "title": "CRITICAL SYSTEM BREACH",
+      "dialogue": "You misidentified the threat! The un-sanitized SQL query executes on the database server. Player accounts are wiped, and the game backend goes offline.",
+      "choices": []
+    }
+  }
+}
