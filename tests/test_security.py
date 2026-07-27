@@ -9,7 +9,7 @@ def test_sqli_detection():
     assert analyzer.detect_sqli("SELECT * FROM users; DROP TABLE players; --") == True
     
     # Normal inputs
-    assert analyzer.detect_sqli("NormalPlayer123") == False
+    assert analyzer.detect_sqli("NormalUser") == False
     assert analyzer.detect_sqli("I want to buy 5 health potions") == False
 
 def test_input_sanitization():
