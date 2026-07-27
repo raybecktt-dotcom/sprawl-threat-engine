@@ -27,14 +27,16 @@ sprawl-threat-engine/
 │   └── workflows/
 │       └── ci.yml          # GitHub Actions CI Workflow
 ├── data/
-│   └── scenarios.json      # Threat Scenarios & Target Configurations
+│   ├── scenarios.json      # Threat Scenarios & Target Configurations
+│   └── schema.sql          # Database Schema for Scan & Threat Persistence
 ├── src/
 │   ├── __init__.py         # Package Marker
+│   ├── db.py               # Database Persistence Layer
 │   ├── engine.py           # Core Threat Processing Engine
-│   ├── security.py         # Security Validation & Pattern Matcher
-│   └── main.py             # CLI Execution Entry Point
+│   ├── main.py             # CLI Execution Entry Point
+│   └── security.py         # Security Control & Pattern Matcher
 ├── tests/
-│   ├── __init__.py         # Test Package Marker
-│   └── test_security.py    # Security Module Unit Tests
-├── pytest.ini              # Pytest Configuration
-└── README.md
+│   └── (Test files)        # Automated Test Suite
+├── conftest.py             # Root Pytest Module Path Resolver
+├── README.md               # Project Documentation
+└── .gitignore
