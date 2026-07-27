@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS audit_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    scene_id TEXT NOT NULL,
+    user_choice TEXT NOT NULL,
+    is_correct INTEGER NOT NULL,
+    threat_type TEXT
+);
+
+CREATE TABLE IF NOT EXISTS high_scores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    agent_name TEXT NOT NULL,
+    score INTEGER NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
